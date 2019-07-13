@@ -1,0 +1,131 @@
+// Vars
+$color-theme-dark-light: #444444;
+
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 570px;
+  max-width: 600px;
+
+  .container {
+    width: 60px;
+    height: 60px;
+
+    .box {
+      transform: translateZ(-30px);
+      transition: transform .5s ease-in-out;
+
+      div {
+        background-color: $color-theme-dark-light;
+        font-size: 40px;
+        line-height: 60px;
+
+        &.front {
+          transform: rotateY(0) translateZ(30px);
+        }
+
+        &.back {
+          transform: rotateY(180deg) translateZ(30px) rotateZ(180deg);
+        }
+
+        &.top {
+          transform: rotateX(90deg) translateZ(30px);
+        }
+
+        &.bottom {
+          transform: rotateX(-90deg) translateZ(30px);
+        }
+
+        &.left {
+          transform: rotateY(-90deg) translateZ(30px);
+        }
+
+        &.right {
+          transform: rotateY(90deg) translateZ(30px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $break-large) {
+  .date {
+    min-width: 380px;
+    max-width: 450px;
+
+    .container {
+      width: 40px;
+      height: 40px;
+
+      .box {
+        transform: translateZ(-20px);
+
+        div {
+          font-size: 30px;
+          line-height: 40px;
+
+          &.front {
+            transform: rotateY(0) translateZ(15px);
+          }
+
+          &.back {
+            transform: rotateY(180deg) translateZ(15px) rotateZ(180deg);
+          }
+
+          &.top {
+            transform: rotateX(90deg) translateZ(15px);
+          }
+
+          &.bottom {
+            transform: rotateX(-90deg) translateZ(15px);
+          }
+
+          &.left {
+            transform: rotateY(-90deg) translateZ(15px);
+          }
+
+          &.right {
+            transform: rotateY(90deg) translateZ(15px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $break-medium) {
+  .date {
+    flex-wrap: wrap;
+    min-width: auto;
+    max-width: 180px;
+
+    .container {
+      &:nth-child(n+7) {
+        margin-top: 10px;
+      }
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $break-small) {
+  .date {
+    max-width: 140px;
+
+    .container {
+      width: 30px;
+      height: 30px;
+
+      .box {
+        div {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}

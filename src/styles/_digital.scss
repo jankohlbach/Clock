@@ -1,0 +1,165 @@
+.digital {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 770px;
+  max-width: 800px;
+
+  .container {
+    .box {
+      transition: transform .5s ease-in-out;
+    }
+
+    &.hour-1,
+    &.hour-2 {
+      .box {
+        div {
+          background-color: $color-accent-1;
+        }
+      }
+    }
+
+    &.minute-1,
+    &.minute-2 {
+      .box {
+        div {
+          background-color: $color-accent-2;
+        }
+      }
+    }
+
+    &.second-1,
+    &.second-2 {
+      .box {
+        div {
+          background-color: $color-accent-3;
+        }
+      }
+    }
+  }
+
+  span {
+    display: block;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      margin: 5px;
+      border-radius: 100%;
+      background-color: $color-theme-light;
+    }
+  }
+}
+
+@media (max-width: $break-large) {
+  .digital {
+    min-width: 550px;
+    max-width: 600px;
+
+    .container {
+      width: 70px;
+      height: 70px;
+
+      .box {
+        transform: translateZ(-35px);
+
+        div {
+          line-height: 70px;
+
+          &.front {
+            transform: rotateY(0) translateZ(35px);
+          }
+
+          &.back {
+            transform: rotateY(180deg) translateZ(35px) rotateZ(180deg);
+          }
+
+          &.top {
+            transform: rotateX(90deg) translateZ(35px);
+          }
+
+          &.bottom {
+            transform: rotateX(-90deg) translateZ(35px);
+          }
+
+          &.left {
+            transform: rotateY(-90deg) translateZ(35px);
+          }
+
+          &.right {
+            transform: rotateY(90deg) translateZ(35px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $break-medium) {
+  .digital {
+    flex-wrap: wrap;
+    min-width: auto;
+    max-width: 160px;
+
+    .container {
+      &:nth-child(n+3) {
+        margin-top: 30px;
+      }
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $break-small) {
+  .digital {
+    max-width: 140px;
+
+    .container {
+      width: 60px;
+      height: 60px;
+
+      &:nth-child(n+3) {
+        margin-top: 20px;
+      }
+
+      .box {
+        transform: translateZ(-30px);
+
+        div {
+          font-size: 40px;
+          line-height: 60px;
+
+          &.front {
+            transform: rotateY(0) translateZ(30px);
+          }
+
+          &.back {
+            transform: rotateY(180deg) translateZ(30px) rotateZ(180deg);
+          }
+
+          &.top {
+            transform: rotateX(90deg) translateZ(30px);
+          }
+
+          &.bottom {
+            transform: rotateX(-90deg) translateZ(30px);
+          }
+
+          &.left {
+            transform: rotateY(-90deg) translateZ(30px);
+          }
+
+          &.right {
+            transform: rotateY(90deg) translateZ(30px);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+// Vars
+$font-family: 'Gutenberg', 'Arial', sans-serif;
+$color-theme-dark: #222222;
+$color-theme-light: #dddddd;
+$color-accent-1: #0066ff;
+$color-accent-2: #66ff00;
+$color-accent-3: #ff0066;
+$break-large: 1024px;
+$break-medium: 600px;
+$break-small: 420px;
+
+@import '_font.scss';
+@import '_cube.scss';
+@import '_clock.scss';
+@import '_digital.scss';
+@import '_date.scss';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: $font-family;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-theme-dark;
+  overflow: hidden;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 550px;
+  }
+}
+
+@media (max-width: $break-large) {
+  body {
+    > div {
+      min-height: 370px;
+    }
+  }
+}
+
+@media (max-width: $break-medium) {
+  body {
+    > div {
+      min-height: 620px;
+    }
+  }
+}
+
+@media (max-width: $break-small) {
+  body {
+    > div {
+      min-height: 510px;
+    }
+  }
+}
